@@ -6,8 +6,8 @@ import Bookmarks from './Bookmarks';
 import uuid from 'uuid';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { bookmarks: [{ title: '', url: '', description: '' }] };
   }
 
