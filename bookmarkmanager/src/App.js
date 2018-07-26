@@ -38,15 +38,25 @@ class App extends Component {
     });
   }
 
+  handleDeleteBookmark(idToRemove) {
+    let currentBookmarks = this.state.bookmarks;
+    let index = currentBookmarks.findIndex((bookmark) => {
+      return bookmark.id === idToRemove;
+    });
+
+    currentBookmarks.splice(index, 1);
+    this.setState({ bookmarks: currentBookmarks });
+  }
+
   render() {
     return (
       <div className="text-center">
         <Header />
         <br />
         <AddBookmark addBookmark={this.handleAddBookmark.bind(this)} />
-        
+
         <div>
-          <Bookmarks bookmarks={this.state.bookmarks}/>
+          <Bookmarks bookmarks={this.state.bookmarks} onDelete={this.handleDeleteBookmark.bind(this)} />
         </div>
 
       </div>);
